@@ -10,7 +10,7 @@ To advance the development of 100B-scale Large Language Models (LLMs), FLM-101B 
 
 As part of the FLM-101B open source project, this code repository is the training framework for FLM-101B. It is a detached fork of [Meagtron-LM](https://github.com/NVIDIA/Megatron-LM). On this basis, we have carried out some development and optimization, including but not limited to: adding [FreeLM](https://arxiv.org/pdf/2305.01616.pdf) model training method, [Loss Prediction](https://arxiv.org/abs/2304.06875), [xPos](https://arxiv.org/pdf/2212.10554.pdf), and a new configurable dataloader system, etc.
 
-**The complete code is currently under active preparation and will be open source soon, so stay tuned.**
+**We have prepared a comprehensive code repository that is essential to our paper's main claims. The reproduction code has been released at https://huggingface.co/CofeAI/FLM-101B. And this code(`FLM-101B`) is the pre-training code. We intend to make the complete repository publicly accessible upon the publication of our paper.**
 
 # Why use FLM-101B
 
@@ -29,17 +29,27 @@ This training framework supports training of models with three parameter sizes m
 | 51                  | 4            | 2            | 24           | 192                 | 2304            | 160                  | 51.30%               | 
 | 101                 | 4            | 4            | 12           | 192                 | 2160            | 165                  | 52.88%               | 
 
-# How to Run
 
-## Setup
-1. Install `cofe-ai/FLM-101B`
-```
-git clone https://github.com/cofe-ai/FLM-101B.git
-cd FLM-101B
-pip install -r requirements.txt
-```
+# System Requirements
 
-2. Install `apex`
+## Hardware requirements
+
+`FLM-101B` package needs to run on NVIDIA A100/A800 GPU server.
+
+## Software requirements
+
+### OS Requirements
+
+This package is supported for Linux. The package has been tested on the following systems:
+Linux: Ubuntu 20.04
+
+### Python Dependencies
+
+`FLM-101B` mainly depends on: `requirements.txt` and [apex](https://github.com/NVIDIA/apex) package.
+
+
+# Installation Guide
+1. Install `apex`
 
 ```
 git clone https://github.com/NVIDIA/apex
@@ -47,9 +57,12 @@ cd apex
 pip install --global-option="--cpp_ext" --global-option="--cuda_ext" --no-cache -v --disable-pip-version-check .  2>&1 | tee build.log
 ```
 
-## Quick Started
-
-**coming soon**
+2. Install `cofe-ai/FLM-101B`
+```
+git clone https://github.com/cofe-ai/FLM-101B.git
+cd FLM-101B
+pip install -r requirements.txt
+```
 
 # Important Methods
 
@@ -83,6 +96,10 @@ You may also consider FreeLM's original work in your reference:
 }
 ```
 
-## Contact
+# Contact
 
-tshwangyequan at gmail.com
+tshwangyequan@gmail.com
+
+# License
+
+This project is covered under the Apache 2.0 License.

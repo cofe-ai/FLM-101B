@@ -9,7 +9,7 @@ FLM-101B支持中英双语，训练上下文窗口长度为2048，得益于使�
 
 作为FLM-101B开源计划的一部分，本项目是FLM-101B的训练框架。该框架的研发基于 [Meagtron-LM](https://github.com/NVIDIA/Megatron-LM)。在此基础上我们进行了一列该开发和优化，包括但不限于：加入[FreeLM](https://arxiv.org/pdf/2305.01616.pdf)模型的训练方法、[Loss Prediction](https://arxiv.org/abs/2304.06875)、[xPos](https://arxiv.org/pdf/2212.10554.pdf)，以及全新的可配置dataloader系统等等。
 
-**目前完整代码正在积极筹备中，即将开源，敬请期待。**
+**我们准备了全面的代码存储库，这对于我们论文的主要观点非常重要。 推理代码已在 https://huggingface.co/CofeAI/FLM-101B 上发布，用于复现实验。 本代码仓（`FLM-101B`）是预训练代码。 我们计划在论文发表后公开完整的存储库。**
 
 # 为什么使用FLM-101B
 
@@ -28,18 +28,26 @@ FLM-101B支持中英双语，训练上下文窗口长度为2048，得益于使�
 | 51                  | 4            | 2            | 24           | 192                 | 2304            | 160                  | 51.30%               | 
 | 101                 | 4            | 4            | 12           | 192                 | 2160            | 165                  | 52.88%               | 
 
+# 系统需求
 
-# 如何执行
+## 硬件要求
 
-## 配置安装
-1. 安装 `cofe-ai/FLM-101B`
-```
-git clone https://github.com/cofe-ai/FLM-101B.git
-cd FLM-101B
-pip install -r requirements.txt
-```
+`FLM-101B` 需要运行在 NVIDIA A100/A800 GPU 服务器上.
 
-2. 安装 `apex`
+## 软件要求
+
+### 系统要求
+
+本仓库代码支持在Linux系统上运行。并在以下系统版本测试通过：
+Linux: Ubuntu 20.04
+
+### Python依赖
+
+`FLM-101B` 的依赖安装: `requirements.txt` 和 [apex](https://github.com/NVIDIA/apex) 包.
+
+# 安装指引
+
+1. 安装 `apex`
 
 ```
 git clone https://github.com/NVIDIA/apex
@@ -47,9 +55,12 @@ cd apex
 pip install --global-option="--cpp_ext" --global-option="--cuda_ext" --no-cache -v --disable-pip-version-check .  2>&1 | tee build.log
 ```
 
-## 快速开始
-
-**即将推出**
+2. 安装 `cofe-ai/FLM-101B`
+```
+git clone https://github.com/cofe-ai/FLM-101B.git
+cd FLM-101B
+pip install -r requirements.txt
+```
 
 # 重要的方法
 
@@ -83,6 +94,7 @@ pip install --global-option="--cpp_ext" --global-option="--cuda_ext" --no-cache 
 }
 ```
 
-## 联系我们
+# 联系我们
 
-tshwangyequan at gmail.com
+tshwangyequan@gmail.com
+
